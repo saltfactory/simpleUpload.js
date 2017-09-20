@@ -406,6 +406,9 @@ var on_finish = function(){
 	          index: i,
 	          state: "init", //textual form of "state" in private_upload_data
 	          file: (files!=null) ? files[i] : { name: DOM_file.value.split(/(\\|\/)/g).pop() }, //ensure "name" always exists, regardless of HTML5 support
+            resend: function(){
+              uploadFile(i);
+            },
 	          cancel: function(){
 
 	              if (getUploadState(i)==0) //if upload hasn't started, don't call the callback, just change the state
